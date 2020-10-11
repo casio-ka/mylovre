@@ -13,5 +13,5 @@ collectstatic:
 
 app: 
 	#django-admin startapp <name>
-	manage.py startapp $(name)
+	./manage.py startapp $(name)
 
