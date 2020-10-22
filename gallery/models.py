@@ -18,11 +18,17 @@ class Location(models.Model):
 class Category(models.Model):
     name = models.CharField(max_length = 30)
     def save_category(self):
+
         self.save()
+
     def delete(self):
+
         Category.objects.get(id=self.id).delete()
+
     def update(self,field,val):
+
         Category.objects.get(id=self.id).update(field=val)
+        
     def __str__(self):
         return self.name
 
@@ -41,6 +47,7 @@ class Image(models.Model):
 
     def delete_image(self):
         Image.objects.get(id = self.id).delete()
+
     def update_image(self, val):
         Image.objects.filter(id = self.id).update(name=val)
 
@@ -52,11 +59,8 @@ class Image(models.Model):
         return cls.objects.all()
     @classmethod
     def search_image(cls,category):
-        try:
-            searched_cat = Category.objects.filter(name__icontains = category)
-            return cls.objects.filter(category_id = searched_cat.id)
-        except Exception:
-            return "no images located"
+        searched_image = cls.objects.filter(category__name__icontains=category)
+        return searched_image
     @classmethod
     def filter_by_location(cls,location):
         img_location = Location.objects.get(name=location)
