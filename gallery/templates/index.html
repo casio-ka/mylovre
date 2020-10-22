@@ -1,11 +1,10 @@
-{% extends 'gallery/base.html'%}
+{% extends 'base.html'%}
 {% load bootstrap4 %}
 {% load static %}
 {% block styles %}
 {{ block.super }}
 {% bootstrap_css %}
 <link rel="stylesheet" href="{% static 'css/index.css' %}">
-<link href="https://fonts.googleapis.com/css?afamily=Maven+Pro" rel="stylesheet">
 {% endblock %}
 
 {% block content %}
@@ -33,9 +32,12 @@
                 </div>
             </div>
         </div>
-        <div class="container-fluid">
-            <div class="pax"></div>
-        
+
+        <div class="pax">
+            <div class="pax-text">
+                <h1>Welcome to MyLouvre</h1>
+                <h3>Where you can view images from various locations</h3>
+            </div>
         </div>
         <br>
         {% if images %}
