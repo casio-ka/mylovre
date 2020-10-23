@@ -82,7 +82,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': os.environ.get('DB_NAME'),
         'PASSWORD': os.environ.get('DB_PASSWORD'),
-        'USER': os.environ.get ('DB_USER'),
+        'USERNAME': os.environ.get ('DB_USER'),
         'HOST': os.environ.get('DB_HOST','127.0.0.1'),
         'PORT': os.environ.get('DB_PORT', 5432)
     }
@@ -128,7 +128,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "static"),]
 
-cloudinary.config( 
+cloudinary.config(
   cloud_name = os.environ.get('CLOUDINARY_CLOUD_NAME'),
   api_key = os.environ.get('CLOUDINARY_API_KEY'), 
   api_secret = os.environ.get('CLOUDINARY_API_SECRET'), 
